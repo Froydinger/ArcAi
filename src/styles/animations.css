@@ -1,0 +1,60 @@
+/* Pulse for Thinking state (using theme accent) */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Rainbow background animation */
+@keyframes rainbow-background {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse animation for rainbow glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; } /* Adjust opacity for desired pulse intensity */
+}
+
+/* --- NEW: Animation Utility Classes --- */
+.animate-rainbow-bg {
+  background: linear-gradient(
+    -45deg,
+    #ee7752, /* Orange */
+    #e73c7e, /* Pink */
+    #23a6d5, /* Blue */
+    #23d5ab  /* Green */
+  );
+  /* background-size needs to be applied separately (e.g., inline style) */
+  animation: rainbow-background 10s ease infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* --- End Animation Utility Classes --- */
+
+
+/* --- REMOVED: Rainbow Glow Effect using Pseudo-element --- */
+/* .rainbow-glow-effect { ... } */
+/* .rainbow-glow-effect::before { ... } */
+
+
+/* Standard animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fadeIn 0.4s ease-out; }
+
+/* Removed @keyframes bounce as Framer Motion handles it now */
+
+@keyframes pulse { /* Standard pulse, maybe unused now */
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }

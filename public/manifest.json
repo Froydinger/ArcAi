@@ -1,0 +1,23 @@
+{
+  "name": "ArcAi",
+  "short_name": "ArcAi",
+  "description": "Your AI Mental Wellness Companion",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "https://froydingermediagroup.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-22-2025-10_50_06-pm-e1745380747320.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://froydingermediagroup.wordpress.com/wp-content/uploads/2025/04/chatgpt-image-apr-22-2025-10_50_06-pm-e1745380747320.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

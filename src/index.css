@@ -1,0 +1,449 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Theme colors with matching logo filters */
+  [data-theme="purple"] {
+    --theme-primary: 124 58 237;    /* Purple */
+    --theme-secondary: 139 92 246;   /* Mid purple */
+    --theme-accent: 167 139 250;     /* Light purple */
+    --theme-bg: 21 13 42;           /* Dark purple */
+    --theme-bg-dark: 9 6 23;        /* Deep purple */
+    --theme-primary-rgb: 124, 58, 237;
+    --theme-secondary-rgb: 139, 92, 246;
+    --theme-accent-rgb: 167, 139, 250;
+    --glass-border: rgba(167, 139, 250, 0.1);
+    --glass-bg: rgba(124, 58, 237, 0.05);
+  }
+
+  [data-theme="blue"] {
+    --theme-primary: 37 99 235;     /* Blue */
+    --theme-secondary: 59 130 246;   /* Mid blue */
+    --theme-accent: 147 197 253;     /* Light blue */
+    --theme-bg: 13 21 42;           /* Dark blue */
+    --theme-bg-dark: 6 9 23;        /* Deep blue */
+    --theme-primary-rgb: 37, 99, 235;
+    --theme-secondary-rgb: 59, 130, 246;
+    --theme-accent-rgb: 147, 197, 253;
+    --glass-border: rgba(147, 197, 253, 0.1);
+    --glass-bg: rgba(37, 99, 235, 0.05);
+  }
+
+  [data-theme="green"] {
+    --theme-primary: 16 185 129;    /* Emerald */
+    --theme-secondary: 52 211 153;   /* Mid emerald */
+    --theme-accent: 110 231 183;     /* Light emerald */
+    --theme-bg: 13 42 23;           /* Dark emerald */
+    --theme-bg-dark: 6 23 13;       /* Deep emerald */
+    --theme-primary-rgb: 16, 185, 129;
+    --theme-secondary-rgb: 52, 211, 153;
+    --theme-accent-rgb: 110, 231, 183;
+    --glass-border: rgba(110, 231, 183, 0.1);
+    --glass-bg: rgba(16, 185, 129, 0.05);
+  }
+
+  [data-theme="gold"] {
+    --theme-primary: 217 119 6;     /* Amber */
+    --theme-secondary: 245 158 11;   /* Mid amber */
+    --theme-accent: 252 211 77;      /* Light amber */
+    --theme-bg: 42 23 13;           /* Dark amber */
+    --theme-bg-dark: 23 13 6;       /* Deep amber */
+    --theme-primary-rgb: 217, 119, 6;
+    --theme-secondary-rgb: 245, 158, 11;
+    --theme-accent-rgb: 252, 211, 77;
+    --glass-border: rgba(252, 211, 77, 0.1);
+    --glass-bg: rgba(217, 119, 6, 0.05);
+  }
+
+  [data-theme="red"] {
+    --theme-primary: 220 38 38;     /* Red */
+    --theme-secondary: 239 68 68;    /* Mid red */
+    --theme-accent: 252 165 165;     /* Light red */
+    --theme-bg: 42 13 13;           /* Dark red */
+    --theme-bg-dark: 23 6 6;        /* Deep red */
+    --theme-primary-rgb: 220, 38, 38;
+    --theme-secondary-rgb: 239, 68, 68;
+    --theme-accent-rgb: 252, 165, 165;
+    --glass-border: rgba(252, 165, 165, 0.1);
+    --glass-bg: rgba(220, 38, 38, 0.05);
+  }
+
+  [data-theme="black-glass"] {
+    --theme-primary: 209 213 219;   /* Gray-300 */
+    --theme-secondary: 156 163 175;  /* Gray-400 */
+    --theme-accent: 243 244 246;    /* Gray-100 (almost white) */
+    --theme-bg: 0 0 0;             /* Black */
+    --theme-bg-dark: 0 0 0;          /* Black */
+    --theme-primary-rgb: 209, 213, 219;
+    --theme-secondary-rgb: 156, 163, 175;
+    --theme-accent-rgb: 243, 244, 246;
+    --glass-border: rgba(255, 255, 255, 0.1); /* White border, low opacity */
+    --glass-bg: rgba(55, 65, 81, 0.1); /* Gray-700 background, low opacity */
+  }
+
+  /* Keyframes for rainbow theme */
+  @keyframes rainbow-pulse {
+    0% {
+      --theme-primary: 26 13 51;
+      --theme-secondary: 38 0 65;
+      --theme-accent: 74 0 105;
+      --theme-bg: 0 0 128;
+      --theme-bg-dark: 13 13 56;
+      --theme-primary-rgb: 26, 13, 51;
+      --theme-secondary-rgb: 38, 0, 65;
+      --theme-accent-rgb: 74, 0, 105;
+      --glass-border: rgba(38, 0, 65, 0.1);
+      --glass-bg: rgba(13, 13, 56, 0.05);
+    }
+    50% {
+      --theme-primary: 38 0 65;
+      --theme-secondary: 74 0 105;
+      --theme-accent: 0 0 128;
+      --theme-bg: 13 13 56;
+      --theme-bg-dark: 26 13 51;
+      --theme-primary-rgb: 38, 0, 65;
+      --theme-secondary-rgb: 74, 0, 105;
+      --theme-accent-rgb: 0, 0, 128;
+      --glass-border: rgba(26, 13, 51, 0.1);
+      --glass-bg: rgba(38, 0, 65, 0.05);
+    }
+    100% {
+      --theme-primary: 26 13 51;
+      --theme-secondary: 38 0 65;
+      --theme-accent: 74 0 105;
+      --theme-bg: 0 0 128;
+      --theme-bg-dark: 13 13 56;
+      --theme-primary-rgb: 26, 13, 51;
+      --theme-secondary-rgb: 38, 0, 65;
+      --theme-accent-rgb: 74, 0, 105;
+      --glass-border: rgba(38, 0, 65, 0.1);
+      --glass-bg: 13 13 56;
+    }
+  }
+
+  /* Keyframes for background orb animation */
+  @keyframes bg-orb-animation {
+    0% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    25% {
+      background-position: 25% 75%, 75% 50%, 50% 25%;
+    }
+    50% {
+      background-position: 50% 100%, 100% 0%, 0% 50%;
+    }
+    75% {
+      background-position: 75% 50%, 50% 25%, 25% 75%;
+    }
+    100% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+  }
+
+  @keyframes bokeh-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* --- ADDED: Keyframes for Pulsing Glow --- */
+  @keyframes pulse-glow {
+    0%, 100% {
+      /* Larger glow (approx 5px edge) */
+      filter: drop-shadow(0 0 5px rgba(var(--theme-accent-rgb), 0.7));
+      color: rgb(var(--theme-accent-rgb)); /* Ensure icon color matches glow */
+    }
+    50% {
+      /* Smaller glow (approx 3px edge) */
+      filter: drop-shadow(0 0 3px rgba(var(--theme-accent-rgb), 0.5));
+      color: rgba(var(--theme-accent-rgb), 0.8); /* Slightly dimmer color */
+    }
+  }
+  /* --- END ADDED --- */
+
+  [data-theme="rainbow"] {
+    animation: rainbow-pulse 40s ease-in-out infinite;
+  }
+
+  /* Base HTML and Body styles - KEEP overflow: hidden */
+  html,
+  body {
+    height: 100%;
+    overflow: hidden; /* Force prevent body scroll */
+  }
+
+  html {
+    font-size: 16px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply text-gray-100;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+    background-color: rgb(var(--theme-bg-dark));
+    position: relative;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  /* Orb background pseudo-element for iOS compatibility */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle at 30% 20%, rgba(var(--theme-accent-rgb), 0.1), transparent 40%),
+      radial-gradient(circle at 70% 30%, rgba(var(--theme-accent-rgb), 0.1), transparent 40%),
+      radial-gradient(circle at 20% 70%, rgba(var(--theme-accent-rgb), 0.1), transparent 40%);
+    background-repeat: no-repeat;
+    background-size: 200% 200%; /* Increase size to allow movement within bounds */
+    animation: bg-orb-animation 15s ease-in-out infinite; /* Changed 30s to 15s */
+    transform: translateZ(0);
+    pointer-events: none;
+  }
+
+  /* Glass effect base styles */
+  .glass-panel {
+    @apply backdrop-blur-xl border transition-all duration-300;
+    border-color: var(--glass-border);
+    background: var(--glass-bg);
+  }
+
+  /* Glass button styles - Adjusted for black-glass */
+  .glass-button {
+    /* UPDATED: Increased rounding */
+    @apply relative overflow-hidden rounded-2xl backdrop-blur-md transition-all duration-300;
+    background: linear-gradient(
+      180deg,
+      rgba(var(--theme-accent-rgb), 0.08) 0%,
+      rgba(var(--theme-secondary-rgb), 0.05) 50%,
+      rgba(var(--theme-primary-rgb), 0.08) 100%
+    );
+    border: 1px solid rgba(var(--theme-accent-rgb), 0.1);
+  }
+
+  .glass-button:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(var(--theme-accent-rgb), 0.12) 0%,
+      rgba(var(--theme-secondary-rgb), 0.08) 50%,
+      rgba(var(--theme-primary-rgb), 0.12) 100%
+    );
+    border-color: rgba(var(--theme-accent-rgb), 0.2);
+    transform: translateY(-1px);
+  }
+
+  .glass-button:active {
+    transform: translateY(1px);
+  }
+
+  /* Root element - KEEP height: 100vh and flex */
+  #root {
+    height: 100vh; /* Use height instead of min-height */
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    display: flex; /* Add flex */
+    flex-direction: column; /* Add flex-direction */
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Global Transparent Scrollbar */
+  /* Webkit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+  }
+
+  /* IE and Edge (older versions) */
+  * {
+    -ms-overflow-style: none;
+  }
+
+  /* Scrollbar Hide Utility */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Logo transition styles */
+  .logo-welcome {
+    top: 15vh;
+    left: calc(50% - 40px);
+    width: 80px;
+  }
+
+  .logo-small {
+    top: 0.5rem;
+    left: calc(50% - 18px);
+    width: 36px;
+    height: auto;
+  }
+
+  /* --- ADDED: Logo Tinting via CSS Filter --- */
+  .logo-image {
+    transition: filter 0.3s ease-in-out; /* Smooth transition between themes */
+  }
+
+  /* Default (no theme or unsupported theme) - show original */
+  .logo-image {
+    filter: none;
+  }
+
+  /* Blue Theme - show original */
+  [data-theme="blue"] .logo-image {
+    filter: none;
+  }
+
+  /* Purple Theme - Shift hue towards purple, adjust saturation/brightness */
+  [data-theme="purple"] .logo-image {
+    filter: hue-rotate(40deg) saturate(1.5) brightness(1.1);
+  }
+
+  /* Green Theme - Shift hue towards green, adjust saturation/brightness */
+  [data-theme="green"] .logo-image {
+    filter: hue-rotate(-60deg) saturate(1.8) brightness(0.9);
+  }
+
+  /* Gold Theme - Shift hue towards gold/yellow, adjust saturation/brightness */
+  [data-theme="gold"] .logo-image {
+    filter: hue-rotate(-130deg) sepia(0.3) saturate(2) brightness(1.0);
+  }
+
+  /* Red Theme - Shift hue towards red, adjust saturation/brightness */
+  [data-theme="red"] .logo-image {
+    filter: hue-rotate(120deg) saturate(1.5) brightness(1.0);
+  }
+
+  /* Black Glass Theme - Desaturate slightly, maybe increase contrast */
+  [data-theme="black-glass"] .logo-image {
+    /* --- UPDATED: Set filter to none for white logo --- */
+    filter: none; /* Or adjust brightness/contrast if pure white is too stark */
+    /* --- END UPDATED --- */
+  }
+
+  /* Rainbow Theme - Could potentially animate the hue-rotate? Or just pick one */
+  [data-theme="rainbow"] .logo-image {
+    filter: hue-rotate(40deg) saturate(1.5) brightness(1.1); /* Match purple for now */
+    /* animation: rainbow-logo-filter 10s linear infinite; */ /* Optional animation */
+  }
+  /* --- END ADDED --- */
+
+  /* Code Block Styling */
+  .prose pre {
+    @apply bg-black/20 p-4 rounded-lg overflow-x-auto max-w-full;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
+  }
+
+  .prose pre code {
+    @apply font-mono text-xs;
+    white-space: pre-wrap !important;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  /* --- UPDATED: Pulsing Glow Style using filter: drop-shadow --- */
+  .pulsing-glow {
+    /* color is set dynamically in the keyframes */
+    animation: pulse-glow 1.5s ease-in-out infinite;
+    /* Ensure the icon itself doesn't get clipped by parent bounds */
+    transform: translateZ(0);
+  }
+  /* --- END UPDATED --- */
+}
