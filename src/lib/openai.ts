@@ -3,7 +3,7 @@ import { MENTAL_WELLNESS_PROMPT } from './prompts'; // Import MENTAL_WELLNESS_PR
 
 let isGenerating = false;
 
-const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API || ;
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API || '';
 
 export const generateImage = async (prompt: string): Promise<string[]> => {
   if (isGenerating) {
